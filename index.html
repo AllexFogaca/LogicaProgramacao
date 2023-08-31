@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.filho{
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+		}
+		.filho-do-filho{
+			width: 0;
+			background: purple;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+<div class="pai">
+	<div class="filho">
+		
+	</div>
+	<div class="filho">
+		
+	</div>
+	<div class="filho">
+		<div class="filho-do-filho"></div>
+	</div>
+	<div class="filho">
+		<div class="filho-do-filho animar"></div>
+	</div>
+	<div class="filho">
+		
+	</div>
+	<div class="filho">
+		
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	//1) Verificar se existe elemento filho
+	//2) Existe a classe x no elemento filho
+	//Se sim aplicar largura animando o elemento!
+	$(function(){
+		
+		$('.pai .filho').each(function(){
+			var obj = $(this).find('.filho-do-filho');
+			if(obj.length > 0){
+				//console.log("existe o filho!");
+				if(obj.hasClass('animar')){
+					//chegamos no final da lógica!
+					obj.animate({width:'500px'},3000,function(){
+						console.log("terminamos nossa lógica :)")
+					})
+				}
+			}
+		})
+	})
+</script>
+
+</body>
+</html>
